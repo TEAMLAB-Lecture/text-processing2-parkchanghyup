@@ -29,13 +29,13 @@ def digits_to_words(input_string):
             'three one four one five'
     """
     
-    dic = {1 :'one',2:'two',3:'three',4:'four',5:'five',6:'six',7:'seven',8:'eight',9:'nine',0:'nine'}
+    dic = {1 :'one',2:'two',3:'three',4:'four',5:'five',6:'six',7:'seven',8:'eight',9:'nine',0:'zero'}
     
     digit_string = ''
     for char in input_string:
-        if char.is_digit():
-            digit_string.append(dic[char])
-    return digit_string
+        if char.isdigit():
+            digit_string+=dic[int(char)]+' '
+    return digit_string[:-1]
 
 
 """
@@ -70,16 +70,20 @@ def to_camel_case(underscore_str):
             >>> tp2.to_camel_case(underscore_str3)
             "alreadyCamel"
     """
+    if '_' not in underscore_str:
+        
+        return underscore_str
+    
     words = underscore_str.split('_')
     words = [y for y in words if y.isalpha()]
     camelcase_str = ''
+    
     for word in words:
         if camelcase_str == '':
-            camelcase_str +=word[0].lower()
-            camelcase_str +=word[1:]
+            camelcase_str+=word.lower()
         else :
             camelcase_str +=word[0].upper()
-            camelcase_str +=word[1:]
+            camelcase_str +=word[1:].lower()
     
         
     
