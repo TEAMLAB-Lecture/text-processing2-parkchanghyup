@@ -75,10 +75,11 @@ def to_camel_case(underscore_str):
     camelcase_str = ''
     for word in words:
         if camelcase_str == '':
-            camelcase_str+=word.lower()
+            camelcase_str +=word[0].lower()
+            camelcase_str +=word[1:]
         else :
             camelcase_str +=word[0].upper()
-            camelcase_str +=word[1:].lower()
+            camelcase_str +=word[1:]
     
         
     
